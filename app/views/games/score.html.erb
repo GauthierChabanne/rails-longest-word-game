@@ -1,0 +1,24 @@
+<div class='container'>
+  <h1>Results</h1>
+
+  <p>Your answer is <%= @answer %></p>
+
+  <% if @result == 1%>
+  <h3> Sorry but <%= @answer %> can't be built out of <%= @letters %></h3>
+  <% elsif @result == 2 %>
+    <h3>Sorry,  but <%= @answer %> does not seem to be a valid English word...</h3>
+  <% else %>
+    <h3><strong>Congratulations!</strong> <%= @answer %> is a valid English word!</h3>
+    <br>
+      <% if @initial_score <= 2 %>
+        <p>Your score is exactly <%= @initial_score %>. <strong>You could do better pal</strong></p>
+      <% else %>
+        <p>Your score is exactly <%= @initial_score %>. <strong>Great job !</strong></p>
+        <br>
+        <% end %>
+        <%= hidden_field_tag :score, @score %>
+      <% end %>
+      <br>
+      <br>
+    <%= link_to "Try again?",  new_path%>
+</div>

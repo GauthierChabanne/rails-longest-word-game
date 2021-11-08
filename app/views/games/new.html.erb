@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h1>New Game</h1>
+
+  <div>
+    <p><% @letters.shuffle.each do |letter| %>
+      <li><div class="li"><%= letter %></div></li>
+    <% end %></p>
+  </div>
+
+  <form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <label for="Answer" class='label'>What is the longest word you can form?</label> <br>
+    <input type="text" id="Answer" name="answer">
+    <input type="submit" value="Play" id="btn-submit">
+  </form>
+
+</div>
